@@ -13,7 +13,6 @@ export class HomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // let define storage to hold our todo list data
     this.todos = [];
-    this.periodeTerpilih = this.navParams.get('periode');
   }
 
   newTodo() {
@@ -31,16 +30,15 @@ export class HomePage {
   }
 
   selectPeriode() {
-    // this.navCtrl.push(
-    //   SelectListPage,
-    //   {
-    //     callback: (result) => {
-    //       this.periodeTerpilih = result;
-    //       return Promise.resolve();
-    //     }
-    //   }
-    // )
-    this.navCtrl.setRoot(SelectListPage);
+    this.navCtrl.push(
+      SelectListPage,
+      {
+        callback: (result) => {
+          this.periodeTerpilih = result;
+          return Promise.resolve();
+        }
+      }
+    )
   }
 
 }
