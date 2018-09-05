@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { FormInputPage } from '../form-input/form-input';
 import { SelectListPage } from '../select-list/select-list';
 
@@ -10,10 +10,10 @@ import { SelectListPage } from '../select-list/select-list';
 export class HomePage {
   todos: string[];
   periodeTerpilih: string;
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     // let define storage to hold our todo list data
     this.todos = [];
-    
+    this.periodeTerpilih = this.navParams.get('periode');
   }
 
   newTodo() {
@@ -31,15 +31,16 @@ export class HomePage {
   }
 
   selectPeriode() {
-    this.navCtrl.push(
-      SelectListPage,
-      {
-        callback: (result) => {
-          this.periodeTerpilih = result;
-          return Promise.resolve();
-        }
-      }
-    )
+    // this.navCtrl.push(
+    //   SelectListPage,
+    //   {
+    //     callback: (result) => {
+    //       this.periodeTerpilih = result;
+    //       return Promise.resolve();
+    //     }
+    //   }
+    // )
+    this.navCtrl.setRoot(SelectListPage);
   }
 
 }
