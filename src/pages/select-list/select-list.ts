@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the SelectListPage page.
@@ -36,13 +37,15 @@ export class SelectListPage {
   }
 
   select(periode) {
-    let callback = this.navParams.get('callback');
-    callback(periode).then(() => {
-      this.navCtrl.pop();
-    })
+    // let callback = this.navParams.get('callback');
+    // callback(periode).then(() => {
+    //   this.navCtrl.pop();
+    // })
+    this.navCtrl.setRoot(HomePage, {periode: periode});
   }
 
   close() {
-    this.navCtrl.pop();
+    // this.navCtrl.pop();
+    this.navCtrl.setRoot(HomePage);
   }
 }
