@@ -23,10 +23,17 @@
   <div>
     <h4>Select from List</h4>
     <div padding>
-      <button ion-button icon-end (click)="selectPeriode()">
+      <!-- <button ion-button icon-end (click)="selectPeriode()">
         {{ periodeTerpilih ||  'Pilih Periode' }}
         <ion-icon name="md-arrow-dropright"></ion-icon>
-      </button>
+      </button> -->
+      <ion-list>
+          <ion-item (click)="selectPeriode()">
+            {{ periodeTerpilih || 'Pilih Periode' }}
+            <ion-icon name="md-arrow-dropright" item-end></ion-icon>
+          </ion-item>
+          <ion-item></ion-item>
+      </ion-list>
     </div>
   </div>
 </ion-content>
